@@ -8,7 +8,7 @@ def main():
     pygame.init()
     clock = pygame.time.Clock()   
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    dt = 0
+    dt = 0 
     player = Player(x=SCREEN_WIDTH / 2, y=SCREEN_HEIGHT / 2)
     print(clock.get_fps())
     print("Starting Asteroids!")
@@ -22,9 +22,10 @@ def main():
                 return
         screen.fill("black")
         
+        player.update(dt)
         player.draw(screen)
         pygame.display.flip()
-        clock.tick(60)
+        dt = clock.tick(60) / 1000
         #pygame.font(clock.get_fps())
 
 
